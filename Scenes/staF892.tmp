@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://cn5pk5d563ugx"]
+
+[ext_resource type="Texture2D" uid="uid://dq6r84aqsxhay" path="res://Images/Backgrounds/Menu/bk_title.png" id="1_7et2x"]
+[ext_resource type="Script" path="res://Scripts/start_menu.gd" id="1_mnudm"]
+[ext_resource type="AudioStream" uid="uid://cg68ow7xdc22w" path="res://Sounds/Music/mus_main.wav" id="2_c0bnp"]
+[ext_resource type="FontFile" uid="uid://btmhuw8scwplb" path="res://Fonts/Thicket.ttf" id="4_c7cvu"]
+[ext_resource type="AudioStream" uid="uid://bia8bkstpbbmt" path="res://Sounds/Sound Effects/snd_ding.ogg" id="5_g33ho"]
+
+[node name="StartMenu" type="Node2D"]
+script = ExtResource("1_mnudm")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(256, 256)
+scale = Vector2(8, 8)
+texture = ExtResource("1_7et2x")
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Controls" type="Label" parent="UI"]
+offset_top = 456.0
+offset_right = 512.0
+offset_bottom = 512.0
+theme_override_colors/font_color = Color(0.294118, 0.239216, 0.141176, 1)
+theme_override_fonts/font = ExtResource("4_c7cvu")
+theme_override_font_sizes/font_size = 24
+text = "Controls:   [ASD] [⇐⇓⇒] [Space]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits" type="Label" parent="UI"]
+offset_right = 512.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.454902, 0.454902, 0.454902, 1)
+theme_override_fonts/font = ExtResource("4_c7cvu")
+theme_override_font_sizes/font_size = 12
+text = "By Problematicar, with help from Jerrod Bacon & TheBeardPhantom"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="Label" parent="UI"]
+offset_left = 120.0
+offset_top = 264.0
+offset_right = 168.0
+offset_bottom = 456.0
+theme_override_colors/font_color = Color(0.521569, 0.494118, 0.0666667, 1)
+theme_override_fonts/font = ExtResource("4_c7cvu")
+theme_override_font_sizes/font_size = 36
+text = "P
+L
+A
+Y"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit" type="Label" parent="UI"]
+visible = false
+offset_left = 344.0
+offset_top = 264.0
+offset_right = 392.0
+offset_bottom = 456.0
+theme_override_colors/font_color = Color(0.521569, 0.494118, 0.0666667, 1)
+theme_override_fonts/font = ExtResource("4_c7cvu")
+theme_override_font_sizes/font_size = 36
+text = "E
+X
+I
+T"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sound" type="Node" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource("2_c0bnp")
+autoplay = true
+
+[node name="SoundEffect" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource("5_g33ho")

@@ -1,0 +1,199 @@
+[gd_scene load_steps=12 format=3 uid="uid://cn5pk5d563ugx"]
+
+[ext_resource type="Script" path="res://Scripts/start_menu.gd" id="1_ydwr5"]
+[ext_resource type="Texture2D" uid="uid://dq6r84aqsxhay" path="res://Images/Backgrounds/Menu/bk_title.png" id="2_ke6so"]
+[ext_resource type="FontFile" uid="uid://btmhuw8scwplb" path="res://Fonts/Thicket.ttf" id="3_12o1j"]
+[ext_resource type="AudioStream" uid="uid://cg68ow7xdc22w" path="res://Sounds/Music/mus_main.wav" id="4_63qi7"]
+[ext_resource type="AudioStream" uid="uid://bia8bkstpbbmt" path="res://Sounds/Sound Effects/snd_ding.ogg" id="5_enxc7"]
+
+[sub_resource type="Animation" id="Animation_jo864"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeWhite:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("FadeBlack:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_se5q8"]
+resource_name = "fade_in_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeBlack:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0kwnq"]
+resource_name = "fade_in_white"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeWhite:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rqq2f"]
+resource_name = "fade_out_black"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeBlack:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s8gy7"]
+resource_name = "fade_out_white"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FadeWhite:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gb7u8"]
+_data = {
+"RESET": SubResource("Animation_jo864"),
+"fade_in_black": SubResource("Animation_se5q8"),
+"fade_in_white": SubResource("Animation_0kwnq"),
+"fade_out_black": SubResource("Animation_rqq2f"),
+"fade_out_white": SubResource("Animation_s8gy7")
+}
+
+[node name="StartMenu" type="Node2D"]
+script = ExtResource("1_ydwr5")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(256, 256)
+scale = Vector2(8, 8)
+texture = ExtResource("2_ke6so")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Controls" type="Label" parent="UI"]
+layout_mode = 0
+offset_top = 464.0
+offset_right = 512.0
+offset_bottom = 512.0
+theme_override_colors/font_color = Color(0.294118, 0.239216, 0.141176, 1)
+theme_override_fonts/font = ExtResource("3_12o1j")
+theme_override_font_sizes/font_size = 24
+text = "Controls:   [ ASD ]   [ ⇐⇓⇒ ]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits" type="Label" parent="UI"]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0.454902, 0.454902, 0.454902, 1)
+theme_override_fonts/font = ExtResource("3_12o1j")
+theme_override_font_sizes/font_size = 12
+text = "By Problematicar, with help from Jerrod Bacon & TheBeardPhantom"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 264.0
+offset_right = 168.0
+offset_bottom = 456.0
+theme_override_colors/font_color = Color(0.521569, 0.494118, 0.0666667, 1)
+theme_override_fonts/font = ExtResource("3_12o1j")
+theme_override_font_sizes/font_size = 36
+text = "P
+L
+A
+Y"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Exit" type="Label" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 344.0
+offset_top = 264.0
+offset_right = 392.0
+offset_bottom = 456.0
+theme_override_colors/font_color = Color(0.521569, 0.494118, 0.0666667, 1)
+theme_override_fonts/font = ExtResource("3_12o1j")
+theme_override_font_sizes/font_size = 36
+text = "E
+X
+I
+T"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FadeWhite" type="ColorRect" parent="UI"]
+layout_mode = 0
+offset_right = 512.0
+offset_bottom = 512.0
+
+[node name="FadeBlack" type="ColorRect" parent="UI"]
+layout_mode = 0
+offset_right = 1541.0
+offset_bottom = 598.0
+scale = Vector2(0.332185, 0.856343)
+color = Color(0, 0, 0, 0)
+
+[node name="FadePlayer" type="AnimationPlayer" parent="UI"]
+libraries = {
+"": SubResource("AnimationLibrary_gb7u8")
+}
+
+[node name="Sound" type="Node" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource("4_63qi7")
+
+[node name="SoundEffect" type="AudioStreamPlayer2D" parent="Sound"]
+stream = ExtResource("5_enxc7")
+
+[connection signal="animation_finished" from="UI/FadePlayer" to="." method="_on_animation_player_animation_finished"]

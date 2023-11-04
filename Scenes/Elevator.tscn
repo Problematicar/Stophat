@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://dk3cv0kwyyrch"]
+
+[ext_resource type="Texture2D" uid="uid://dvgmlr4tvfcgp" path="res://Images/Backgrounds/Elevator/bk_doors.png" id="1_f2osp"]
+[ext_resource type="Texture2D" uid="uid://d3yjapp6ybhyt" path="res://Images/Sprites/spr_tophat_0.png" id="2_47wa7"]
+[ext_resource type="Script" path="res://Scenes/Hat.gd" id="2_q0oc2"]
+[ext_resource type="Texture2D" uid="uid://d00gepah8m6lw" path="res://Images/Sprites/spr_you_0.png" id="3_dvssg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6cvtb"]
+size = Vector2(512, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_it57n"]
+size = Vector2(512, 29)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_er4e8"]
+size = Vector2(24, 443)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_evrxg"]
+radius = 27.0
+height = 172.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ow0gu"]
+size = Vector2(30, 45)
+
+[node name="elevator" type="Node2D"]
+
+[node name="Elevator" type="StaticBody2D" parent="."]
+
+[node name="Background" type="Sprite2D" parent="Elevator"]
+texture_filter = 1
+position = Vector2(256, 256)
+scale = Vector2(4, 4)
+texture = ExtResource("1_f2osp")
+
+[node name="Ceiling" type="CollisionShape2D" parent="Elevator"]
+position = Vector2(256, 20)
+shape = SubResource("RectangleShape2D_6cvtb")
+
+[node name="Floor" type="CollisionShape2D" parent="Elevator"]
+position = Vector2(256, 497.5)
+shape = SubResource("RectangleShape2D_it57n")
+
+[node name="LeftWall" type="CollisionShape2D" parent="Elevator"]
+position = Vector2(12, 261.5)
+shape = SubResource("RectangleShape2D_er4e8")
+
+[node name="RightWall" type="CollisionShape2D" parent="Elevator"]
+position = Vector2(500, 261.5)
+shape = SubResource("RectangleShape2D_er4e8")
+
+[node name="Sir" type="CharacterBody2D" parent="."]
+position = Vector2(0, -10)
+
+[node name="SirSprite" type="Sprite2D" parent="Sir"]
+texture_filter = 1
+position = Vector2(243, 400)
+scale = Vector2(3, 3)
+texture = ExtResource("3_dvssg")
+
+[node name="SirCollision" type="CollisionShape2D" parent="Sir"]
+position = Vector2(247, 408)
+shape = SubResource("CapsuleShape2D_evrxg")
+
+[node name="Hat" type="CharacterBody2D" parent="."]
+position = Vector2(0, 102)
+script = ExtResource("2_q0oc2")
+
+[node name="HatSprite" type="Sprite2D" parent="Hat"]
+texture_filter = 1
+position = Vector2(243, 175)
+scale = Vector2(3, 3)
+texture = ExtResource("2_47wa7")
+
+[node name="HatCollision" type="CollisionShape2D" parent="Hat"]
+position = Vector2(243, 173.5)
+shape = SubResource("RectangleShape2D_ow0gu")

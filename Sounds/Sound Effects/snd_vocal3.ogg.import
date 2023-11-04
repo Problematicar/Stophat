@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://i8csi4b6erv2"
+path="res://.godot/imported/snd_vocal3.ogg-dce5ea4f07f990e6834de9369332d540.oggvorbisstr"
+
+[deps]
+
+source_file="res://Sounds/Sound Effects/snd_vocal3.ogg"
+dest_files=["res://.godot/imported/snd_vocal3.ogg-dce5ea4f07f990e6834de9369332d540.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
